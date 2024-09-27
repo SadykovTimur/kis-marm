@@ -1,5 +1,5 @@
 name: 'Интеграция с СУДИР'
-cmd: 'pytest --alluredir={allure_reports_path} tests/test_authorization.py'
+cmd: 'pytest --alluredir={allure_reports_path} tests/test_integration_sudir.py'
 steps:
   - 'Открытие стартовой страницы'
   - 'Открытие страницы "Войти через СУДИР"'

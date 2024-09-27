@@ -6,6 +6,7 @@ from selenium.common.exceptions import NoSuchElementException
 from dit.qa.pages.auth_sudir_page import AuthSudirPage
 from dit.qa.pages.main_page import MainPage
 from dit.qa.pages.start_page import StartPage
+from dit.qa.pages.sudir_page import SudirPage
 
 __all__ = [
     'open_start_page',
@@ -22,8 +23,6 @@ __all__ = [
     'add_table_data_base',
     'delete_table_data_base',
 ]
-
-from dit.qa.pages.sudir_page import SudirPage
 
 
 def open_start_page(app: Application) -> None:
@@ -58,16 +57,16 @@ def open_test_start_page(app: Application) -> None:
 
 
 def open_authorization_sudir_page(app: Application) -> None:
-    with allure.step('Opening Test start page'):
+    with allure.step('Opening Authorization sudir page'):
         try:
             page = StartPage(app)
             page.sudir.click()
 
             AuthSudirPage(app).wait_for_loading()
 
-            screenshot_attach(app, 'test_start_page')
+            screenshot_attach(app, 'authorization_sudir_page')
         except Exception as e:
-            screenshot_attach(app, 'test_start_page_error')
+            screenshot_attach(app, 'authorization_sudir_page_error')
 
             raise e
 
@@ -146,7 +145,7 @@ def open_directory(app: Application) -> None:
 
 
 def add_directory(app: Application, name: str = "monitoring", fields: str = "monitoring") -> None:
-    with allure.step('Added Directory'):
+    with allure.step('Adding Directory'):
         try:
             page = MainPage(app)
             page.main.add.click()
@@ -165,7 +164,7 @@ def add_directory(app: Application, name: str = "monitoring", fields: str = "mon
 
 
 def delete_directory(app: Application) -> None:
-    with allure.step('Deleted Directory'):
+    with allure.step('Deleting Directory'):
         try:
             page = MainPage(app)
             page.main.delete[3].webelement.click()
@@ -196,7 +195,7 @@ def open_data_base(app: Application) -> None:
 
 
 def add_table_data_base(app: Application, name: str = "monitoring", fields: str = "monitoring") -> None:
-    with allure.step('Added Table data base'):
+    with allure.step('Adding Table data base'):
         try:
             page = MainPage(app)
             page.main.add.click()
@@ -215,7 +214,7 @@ def add_table_data_base(app: Application, name: str = "monitoring", fields: str 
 
 
 def delete_table_data_base(app: Application) -> None:
-    with allure.step('Deleted Table data base'):
+    with allure.step('Deleting Table data base'):
         try:
             page = MainPage(app)
             page.main.delete[1].webelement.click()
