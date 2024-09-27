@@ -9,8 +9,12 @@ from dit.qa.pages.start_page import StartPage
 
 __all__ = [
     'open_start_page',
+    'open_test_start_page',
+    'open_authorization_sudir_page',
     'sign_in',
+    'sign_in_sudir',
     'open_main_page',
+    'open_sudir_page',
     'open_directory',
     'add_directory',
     'delete_directory',
@@ -18,6 +22,8 @@ __all__ = [
     'add_table_data_base',
     'delete_table_data_base',
 ]
+
+from dit.qa.pages.sudir_page import SudirPage
 
 
 def open_start_page(app: Application) -> None:
@@ -112,8 +118,20 @@ def open_main_page(app: Application) -> None:
             raise e
 
 
+def open_sudir_page(app: Application) -> None:
+    with allure.step('Opening Sudir page'):
+        try:
+            SudirPage(app).wait_for_loading()
+
+            screenshot_attach(app, 'sudir_page')
+        except Exception as e:
+            screenshot_attach(app, 'sudir_page_error')
+
+            raise e
+
+
 def open_directory(app: Application) -> None:
-    with (allure.step('Opening Directory')):
+    with allure.step('Opening Directory'):
         try:
             page = MainPage(app)
             page.menu.directory.click()
@@ -163,7 +181,7 @@ def delete_directory(app: Application) -> None:
 
 
 def open_data_base(app: Application) -> None:
-    with (allure.step('Opening Data base')):
+    with allure.step('Opening Data base'):
         try:
             page = MainPage(app)
             page.menu.data_base.click()

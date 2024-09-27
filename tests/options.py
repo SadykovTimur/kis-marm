@@ -64,3 +64,9 @@ def pytest_addoption(parser):
 
     parser.addoption('--user', action='store', dest='username', type=str, default='dit_test', help='Username')
     parser.addoption('--password', action='store', dest='password', type=str, default='Qwerty@12345', help='Password')
+    parser.addoption(
+        '--user_sudir', action='store', dest='username_sudir', type=str, default='SukharevER', help='Username_sudir'
+    )
+    parser.addoption(
+        '--password_sudir', action='store', dest='password_sudir', type=str, default='QazWsx123', help='Password_sudir'
+    )

@@ -12,25 +12,19 @@ __all__ = ['AuthSudirPage']
 
 
 class AuthSudirPage(Page):
-    title = Text(tag="h1")
-    login = TextField(name="login")
-    password = TextField(name="password")
-    submit = Button(xpath='//span[text()="Войти"]')
-    recovery_password = Component(xpath='//a[text()="Восстановить пароль"]')
-    sudir = Button(xpath='//a[text()="Войти через СУДИР"]')
-    user_fkr = Component(xpath='//a[text()="Вход для руководителя ФКР"]')
-    user_sgtn = Component(xpath='//a[text()="Вход для руководителя СГТН"]')
+    title = Text(class_name="page-title")
+    login = TextField(id="login")
+    password = TextField(id="password")
+    submit = Button(id="bind")
+    recovery_password = Component(id="recoveryEnter")
 
     def wait_for_loading(self) -> None:
         def condition() -> bool:
             try:
-                assert self.title == 'КИС'
+                assert self.title == 'Вход в КИС МАРМ (ТЕСТ)'
                 assert self.login.visible
                 assert self.password.visible
                 assert self.recovery_password.visible
-                assert self.sudir.visible
-                assert self.user_sgtn.visible
-                assert self.user_fkr.visible
 
                 return self.submit.visible
 
@@ -39,5 +33,5 @@ class AuthSudirPage(Page):
                 return False
 
         self.app.set_implicitly_wait(1)
-        wait_for(condition, timeout=35, msg='Стартовая страница не загружена')
+        wait_for(condition, timeout=70, msg='Страница авторицации СУДИР не загружена')
         self.app.restore_implicitly_wait()

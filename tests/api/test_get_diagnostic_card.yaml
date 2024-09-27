@@ -1,0 +1,5 @@
+name: 'Получение Диагностической карты'
+cmd: 'pytest --alluredir={allure_reports_path} tests/api/test_get_diagnostic_card.py'
+steps:
+  - 'Получение версии ДК'
+  - 'Получение JSON-файла ДК'
