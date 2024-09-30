@@ -71,7 +71,7 @@ class MainPage(Page):
                 return False
 
         self.app.set_implicitly_wait(1)
-        wait_for(condition, timeout=70, msg='Справочни не удален')
+        wait_for(condition, timeout=70, msg='Справочник не удален')
         self.app.restore_implicitly_wait()
 
     def wait_data_base(self) -> None:

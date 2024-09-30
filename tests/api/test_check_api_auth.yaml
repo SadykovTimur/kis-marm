@@ -2,3 +2,4 @@ name: 'Аутентификация пользователя'
 cmd: 'pytest --alluredir={allure_reports_path} tests/api/test_check_api_auth.py'
 steps:
   - 'Выполнение авторизации через API'
+  - 'Пользователь ввёл неправильный логин или пароль'

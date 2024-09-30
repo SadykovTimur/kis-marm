@@ -33,5 +33,5 @@ class AuthSudirPage(Page):
                 return False
 
         self.app.set_implicitly_wait(1)
-        wait_for(condition, timeout=70, msg='Страница авторицации СУДИР не загружена')
+        wait_for(condition, timeout=70, msg='Страница авторизации СУДИР не загружена')
         self.app.restore_implicitly_wait()

@@ -1,4 +1,4 @@
 name: 'Диагностика'
-cmd: 'pytest --alluredir={allure_reports_path} tests/api/test_check_appp.py'
+cmd: 'pytest --alluredir={allure_reports_path} tests/api/test_check_app.py'
 steps:
   - 'Проверка работоспособности приложения'

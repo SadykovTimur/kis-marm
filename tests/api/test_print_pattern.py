@@ -1,17 +1,7 @@
 import allure
 from _pytest.fixtures import FixtureRequest
 
-from tests.api.steps import (
-    api_auth,
-    check_files,
-    delete_files,
-    deleted_files,
-    download_files,
-    get_files,
-    get_pattern,
-    get_pattern_docx,
-    transfer_files,
-)
+from tests.api.steps import api_auth, get_pattern, get_pattern_docx
 
 
 @allure.epic('KIS-MARM')
