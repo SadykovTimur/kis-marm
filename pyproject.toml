@@ -79,6 +79,11 @@ disallow_untyped_calls = true
 namespace_packages = true
 explicit_package_bases = true
 
+[[tool.mypy.overrides]]
+module = [
+    "requests",
+]
+
 [tool.pylint.messages_control]
 max-line-length = 120
 disable = [

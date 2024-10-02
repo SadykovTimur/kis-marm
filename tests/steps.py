@@ -28,10 +28,9 @@ __all__ = [
 def open_start_page(app: Application) -> None:
     with allure.step('Opening Start page'):
         try:
-            page = StartPage(app)
-            page.open()
+            StartPage(app).open()
 
-            page.wait_for_loading()
+            StartPage(app).wait_for_loading()
 
             screenshot_attach(app, 'start_page')
         except Exception as e:
@@ -59,8 +58,7 @@ def open_test_start_page(app: Application) -> None:
 def open_authorization_sudir_page(app: Application) -> None:
     with allure.step('Opening Authorization sudir page'):
         try:
-            page = StartPage(app)
-            page.sudir.click()
+            StartPage(app).sudir.click()
 
             AuthSudirPage(app).wait_for_loading()
 
